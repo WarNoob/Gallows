@@ -45,7 +45,7 @@
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(102, 38);
             this.buttonStart.TabIndex = 0;
-            this.buttonStart.Text = "СТРАТ!";
+            this.buttonStart.Text = "СТАРТ!";
             this.buttonStart.UseVisualStyleBackColor = true;
             // 
             // label1
