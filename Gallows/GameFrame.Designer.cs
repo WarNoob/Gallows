@@ -1,6 +1,6 @@
 ﻿namespace Gallows
 {
-    partial class Form1
+    partial class GameFrame
     {
         /// <summary>
         /// Обязательная переменная конструктора.

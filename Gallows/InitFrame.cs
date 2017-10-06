@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gallows
 {
-    public partial class Form1 : Form
+    public partial class InitFrame : Form
     {
-        public Form1()
+        public InitFrame()
         {
             InitializeComponent();
         }
