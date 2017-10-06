@@ -60,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GameFrame.resx">
+      <DependentUpon>GameFrame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InitFrame.resx">
       <DependentUpon>InitFrame.cs</DependentUpon>
     </EmbeddedResource>
