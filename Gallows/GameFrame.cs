@@ -19,7 +19,7 @@ namespace Gallows
 
         private void button2_Click(object sender, EventArgs e)
         {
-            button2_Click.Text("Не нажимай меня!!!")
+            button2.Text = "Не нажимай меня!!!";
         }
     }
 }
