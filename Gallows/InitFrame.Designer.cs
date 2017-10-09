@@ -32,8 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxPlayerName = new System.Windows.Forms.TextBox();
-            this.radioButtonEasile = new System.Windows.Forms.RadioButton();
-            this.radioButtonFine = new System.Windows.Forms.RadioButton();
+            this.radioButtonEasy = new System.Windows.Forms.RadioButton();
+            this.radioButtonNorm = new System.Windows.Forms.RadioButton();
             this.radioButtonHard = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
@@ -47,6 +47,7 @@
             this.buttonStart.TabIndex = 0;
             this.buttonStart.Text = "СТАРТ!";
             this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // label1
             // 
@@ -73,27 +74,27 @@
             this.textBoxPlayerName.Size = new System.Drawing.Size(100, 20);
             this.textBoxPlayerName.TabIndex = 3;
             // 
-            // radioButtonEasile
+            // radioButtonEasy
             // 
-            this.radioButtonEasile.AutoSize = true;
-            this.radioButtonEasile.Checked = true;
-            this.radioButtonEasile.Location = new System.Drawing.Point(89, 65);
-            this.radioButtonEasile.Name = "radioButtonEasile";
-            this.radioButtonEasile.Size = new System.Drawing.Size(56, 17);
-            this.radioButtonEasile.TabIndex = 4;
-            this.radioButtonEasile.TabStop = true;
-            this.radioButtonEasile.Text = "Легко";
-            this.radioButtonEasile.UseVisualStyleBackColor = true;
+            this.radioButtonEasy.AutoSize = true;
+            this.radioButtonEasy.Checked = true;
+            this.radioButtonEasy.Location = new System.Drawing.Point(89, 65);
+            this.radioButtonEasy.Name = "radioButtonEasy";
+            this.radioButtonEasy.Size = new System.Drawing.Size(56, 17);
+            this.radioButtonEasy.TabIndex = 4;
+            this.radioButtonEasy.TabStop = true;
+            this.radioButtonEasy.Text = "Легко";
+            this.radioButtonEasy.UseVisualStyleBackColor = true;
             // 
-            // radioButtonFine
+            // radioButtonNorm
             // 
-            this.radioButtonFine.AutoSize = true;
-            this.radioButtonFine.Location = new System.Drawing.Point(89, 88);
-            this.radioButtonFine.Name = "radioButtonFine";
-            this.radioButtonFine.Size = new System.Drawing.Size(83, 17);
-            this.radioButtonFine.TabIndex = 4;
-            this.radioButtonFine.Text = "Нормально";
-            this.radioButtonFine.UseVisualStyleBackColor = true;
+            this.radioButtonNorm.AutoSize = true;
+            this.radioButtonNorm.Location = new System.Drawing.Point(89, 88);
+            this.radioButtonNorm.Name = "radioButtonNorm";
+            this.radioButtonNorm.Size = new System.Drawing.Size(83, 17);
+            this.radioButtonNorm.TabIndex = 4;
+            this.radioButtonNorm.Text = "Нормально";
+            this.radioButtonNorm.UseVisualStyleBackColor = true;
             // 
             // radioButtonHard
             // 
@@ -111,8 +112,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 209);
             this.Controls.Add(this.radioButtonHard);
-            this.Controls.Add(this.radioButtonFine);
-            this.Controls.Add(this.radioButtonEasile);
+            this.Controls.Add(this.radioButtonNorm);
+            this.Controls.Add(this.radioButtonEasy);
             this.Controls.Add(this.textBoxPlayerName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -132,8 +133,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxPlayerName;
-        private System.Windows.Forms.RadioButton radioButtonEasile;
-        private System.Windows.Forms.RadioButton radioButtonFine;
+        private System.Windows.Forms.RadioButton radioButtonEasy;
+        private System.Windows.Forms.RadioButton radioButtonNorm;
         private System.Windows.Forms.RadioButton radioButtonHard;
     }
 }

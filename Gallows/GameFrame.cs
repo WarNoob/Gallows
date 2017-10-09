@@ -15,10 +15,20 @@ namespace Gallows
         List<QuestWord> easyList;
         List<QuestWord> normList;
         List<QuestWord> hardList;
+        public void MyLine()
+        {
+            Graphics g = this.CreateGraphics();
+            g.DrawLine(new Pen(Color.Red), 20, 10, 300, 100);
+        }
         public GameFrame()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
+        private void GameFrame_Load(object sender, EventArgs e)
+        {
+            MyLine();
+        }
+       
     }
 }
