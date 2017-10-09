@@ -12,14 +12,13 @@ namespace Gallows
 {
     public partial class GameFrame : Form
     {
+        List<QuestWord> easyList;
+        List<QuestWord> normList;
+        List<QuestWord> hardList;
         public GameFrame()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            button2.Text = "Не нажимай меня!!!";
-        }
     }
 }
