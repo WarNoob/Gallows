@@ -16,7 +16,7 @@ namespace Gallows
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameFrame());
+            Application.Run(new InitFrame());
         }
     }
 }

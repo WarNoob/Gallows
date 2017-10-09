@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Gallows
 {
-    class LevelDifficulty
+    public enum LevelDifficulty
     {
+        Easy,
+        Normal,
+        Hard
     }
 }
