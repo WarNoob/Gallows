@@ -31,7 +31,7 @@ namespace Gallows
                 level = LevelDifficulty.Hard;
 
             GameFrame frm = new GameFrame(level, name);
-            frm.MyLine();
+            
 
             this.Hide();                 
         }
