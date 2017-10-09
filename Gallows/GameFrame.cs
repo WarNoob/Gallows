@@ -20,11 +20,11 @@ namespace Gallows
         LevelDifficulty levelDif;
         //Имя игрока
         string name;
-        public void MyLine()
-        {
-            Graphics g = this.CreateGraphics();
-            g.DrawLine(new Pen(Color.Black,5), 650, 0, 650, 600);
-        }
+
+        float scale = 0.1F;
+        int scale_c = 0;
+        bool bboool = false;
+
         public GameFrame(LevelDifficulty levelDif, string name)
         {
             InitializeComponent();            
@@ -48,9 +48,7 @@ namespace Gallows
             pictureBox1.MouseLeave += new EventHandler(pictureBox1_MouseLeave);
         }
 
-        private float scale = 0.1F;
-        private int scale_c = 0;
-        private bool bboool = false;
+    
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
@@ -104,8 +102,33 @@ namespace Gallows
                 bboool = true;
             };
         }
-        
 
+        private void buttonGameOver_Click(object sender, EventArgs e)
+        {
+            scale = 0.1F; scale_c = 0;
+            pictureBox2.Visible = false;
+            panel1.Visible = false;
+            pictureBox1.Image = Image.FromFile("pics/gameover.png");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
+
+            pictureBox1.Visible = true;
+            end.Enabled = true;
+        }
+
+        private void buttonYouWin_Click(object sender, EventArgs e)
+        {
+            scale = 0.1F; scale_c = 0;
+            pictureBox2.Visible = false;
+            panel1.Visible = false;
+            pictureBox1.Image = Image.FromFile("pics/youwin.png");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
+
+            pictureBox1.Visible = true;
+            end.Enabled = true;
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             pictureBox2.Image = Image.FromFile("pics/visel0.png");
@@ -154,41 +177,7 @@ namespace Gallows
         private void button10_Click(object sender, EventArgs e)
         {
             pictureBox2.Image = Image.FromFile("pics/visel9.png");
-        }
-  
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonGameOver_Click(object sender, EventArgs e)
-        {
-            scale = 0.1F; scale_c = 0;
-            pictureBox2.Visible = false;
-            panel1.Visible = false;
-            pictureBox1.Image = Image.FromFile("pics/gameover.png");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
-
-            pictureBox1.Visible = true;
-            end.Enabled = true;
-        }
-
-        private void buttonYouWin_Click(object sender, EventArgs e)
-        {
-            scale = 0.1F; scale_c = 0;
-            pictureBox2.Visible = false;
-            panel1.Visible = false;
-            pictureBox1.Image = Image.FromFile("pics/youwin.png");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
-
-            pictureBox1.Visible = true;
-            end.Enabled = true;
-
-        }
-   
+        } 
     }
 
 }
