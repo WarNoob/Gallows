@@ -39,7 +39,7 @@
             this.MinimizeBox = false;
             this.Name = "GameFrame";
             this.Text = "Висельница";
-            this.Load += new System.EventHandler(this.GameFrame_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameFrame_FormClosing);
             this.ResumeLayout(false);
 
         }

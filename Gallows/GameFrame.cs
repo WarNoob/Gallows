@@ -25,18 +25,21 @@ namespace Gallows
             Graphics g = this.CreateGraphics();
             g.DrawLine(new Pen(Color.Red), 20, 10, 300, 100);
         }
-        public GameFrame()
+        public GameFrame(LevelDifficulty levelDif, string name)
         {
             InitializeComponent();
-            InitFrame frm = (InitFrame)this.Owner;
-            this.levelDif = frm.level;
-            this.name = frm.name;
+            
+            this.levelDif = levelDif;
+            this.name = name;
+            this.Show();
         }
 
-        private void GameFrame_Load(object sender, EventArgs e)
+        //Из-за того что первую форму надо скрыть а не
+        //закрыть, при открытии второй(иначе главный потиок программы закрываться и 
+        //прилажение закрываеться) нужен этот обработчик
+        private void GameFrame_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MyLine();
+            Application.Exit();
         }
-       
     }
 }
