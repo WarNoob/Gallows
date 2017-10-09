@@ -8,7 +8,9 @@ namespace Gallows
 {
     class QuestWord
     {
+        //Поле которое хранит само слово
         public string Word { get; private set; }
+        //Поле которое хранит описание слова. 
         public string Description { get; private set; }
     }
 }
