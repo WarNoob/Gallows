@@ -23,12 +23,11 @@ namespace Gallows
         public void MyLine()
         {
             Graphics g = this.CreateGraphics();
-            g.DrawLine(new Pen(Color.Red), 20, 10, 300, 100);
+            g.DrawLine(new Pen(Color.Black,5), 650, 0, 650, 600);
         }
         public GameFrame(LevelDifficulty levelDif, string name)
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
             this.levelDif = levelDif;
             this.name = name;
             this.Show();
