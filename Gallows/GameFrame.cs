@@ -12,6 +12,7 @@ namespace Gallows
 {
     public partial class GameFrame : Form
     {
+        InitFrame initFrame;
         //Уровень сложности
         LevelDifficulty levelDif;
         //Имя игрока
@@ -20,27 +21,33 @@ namespace Gallows
         string questWord;
         //Счётчик ошибок при выборе буквы
         int countError;
+        int countWin;
+        //Сколько букв угадано. Для победы countWin == guessedLetters
+        int guessedLetters;
         //Коллекция которая хранит ссылки на texBox которые отображат questWord
-        List<TextBox> listBoxLetters;
+        List<TextBox> listBoxLetters = new List<TextBox>();
 
         float scale = 0.1F;
         int scale_c = 0;
         bool bboool = false;
 
-        public GameFrame(LevelDifficulty levelDif, string name, string questWord)
+        public GameFrame(LevelDifficulty levelDif, string name, string questWord, InitFrame initFrame)
         {
-            InitializeComponent();            
+            DrawWord(questWord);
+            InitializeComponent();
+            
             this.levelDif = levelDif;
             this.name = name;
             this.questWord = questWord;
-            listBoxLetters = new List<TextBox>();
-            countError = 0;
+            this.initFrame = initFrame;
 
-            //Инициализация интерфейса отображения квестового слова
-            DrawWord(questWord);
-            OpenLetter(0);
-            OpenLetter(questWord.Length - 1);
-            this.Show();
+            countError = 0;
+            //Счётчик сколько надо угадать слов, кроме первых 2 открытых
+            countWin = questWord.Length - 2;
+            guessedLetters = 0;
+
+
+            this.Show();            
         }
 
 
@@ -52,34 +59,50 @@ namespace Gallows
             Application.Exit();
         }
         //Отрисовака всего слова в начале игры
-        private void DrawWord(string word)
+        public void DrawWord(string word)
         {
-            Point point = new Point(28, 34);
+            Point point = new Point(500, 34);
             for (int i = 0; i < word.Length; i++)
             {
                 TextBox boxLetter = new TextBox();
-                
+
                 boxLetter.BackColor = System.Drawing.Color.Black;
                 boxLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-                boxLetter.ForeColor = System.Drawing.Color.Gold;
+                boxLetter.ForeColor = System.Drawing.Color.Red;
                 boxLetter.Location = point;
                 boxLetter.Name = "boxLetter" + i;
                 boxLetter.Size = new System.Drawing.Size(32, 32);
                 boxLetter.TabIndex = 12;
-                boxLetter.Text = "#";
+                boxLetter.Text = "#";                
+                boxLetter.Enabled = false;
+                boxLetter.Visible = false;
                 boxLetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 
                 listBoxLetters.Add(boxLetter);
 
-                point.X += 26; 
+                this.Controls.Add(boxLetter);
+                point.X += 26;
             }
-
-           
+        }
+        public void VisibleWordT()
+        {
+            foreach (var item in listBoxLetters)
+            {
+                item.Visible = true;
+            }
+        }
+        public void VisibleWordF()
+        {
+            foreach (var item in listBoxLetters)
+            {
+                item.Visible = false;
+            }
         }
         //Открытие определённной буквы
         private void OpenLetter(int index)
         {
-            listBoxLetters[index].Text = "" + questWord[index];
+            string str = "" + questWord[index];
+            listBoxLetters[index].Text = str.ToUpper();
         }
 
         #region Методы обновления висельницы, GameOver, YouWin
@@ -92,19 +115,22 @@ namespace Gallows
 
         private void GameOver()
         {
-            scale = 0.1F; scale_c = 0;
+            VisibleWordF();
+            scale = 0.1F; scale_c = 0;            
             pictureBox2.Visible = false;
             panel1.Visible = false;
             pictureBox1.Image = Image.FromFile("pics/gameover.png");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
 
-            pictureBox1.Visible = true;
+            pictureBox1.Visible = true;           
             end.Enabled = true;
+            initFrame.Show();
         }
 
         private void YouWin()
         {
+            VisibleWordF();
             scale = 0.1F; scale_c = 0;
             pictureBox2.Visible = false;
             panel1.Visible = false;
@@ -114,7 +140,7 @@ namespace Gallows
 
             pictureBox1.Visible = true;
             end.Enabled = true;
-
+            initFrame.Show();
         }
         #endregion
 
@@ -122,9 +148,10 @@ namespace Gallows
         {
             pictureBox1.MouseEnter += new EventHandler(pictureBox1_MouseEnter);
             pictureBox1.MouseLeave += new EventHandler(pictureBox1_MouseLeave);
+
         }
 
-    
+
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
@@ -137,8 +164,9 @@ namespace Gallows
 
             if (scale >= 1)
             {
-                start.Enabled = false;
+                start.Enabled = false;               
             };
+            
         }
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -154,16 +182,20 @@ namespace Gallows
             {
                 end.Enabled = false;
             };
+
         }
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
             if (!bboool)
-                pictureBox1.Image = Image.FromFile("pics/start2.png");
+            {
+                pictureBox1.Image = Image.FromFile("pics/start2.png");               
+            }
+
         }
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            if(!bboool)
+            if (!bboool)
                 pictureBox1.Image = Image.FromFile("pics/start1.png");
         }
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -171,14 +203,19 @@ namespace Gallows
             if (!bboool)
             {
                 pictureBox1.Visible = false;
+                VisibleWordT();
                 pictureBox2.Visible = true;
                 panel1.Visible = true;
                 bboool = true;
-            };
+                OpenLetter(0);
+                OpenLetter(questWord.Length - 1);
+            };           
+
         }
         #region Тестовые кнопки для медия 
         private void buttonGameOver_Click(object sender, EventArgs e)
         {
+            VisibleWordF();
             scale = 0.1F; scale_c = 0;
             pictureBox2.Visible = false;
             panel1.Visible = false;
@@ -192,6 +229,7 @@ namespace Gallows
 
         private void buttonYouWin_Click(object sender, EventArgs e)
         {
+            VisibleWordF();
             scale = 0.1F; scale_c = 0;
             pictureBox2.Visible = false;
             panel1.Visible = false;
@@ -258,14 +296,18 @@ namespace Gallows
         private void button25_Click(object sender, EventArgs e)
         {
             bool isFind = false;
-
-            //При сравнении не учитываем первый(нулевой) символ и последний. Ибо они уже открыты
-            for (int i = 1; i < questWord.Length - 1; i++)
+            questWord = questWord.ToUpper();
+            if (sender is Button)
             {
-                if (questWord[i].CompareTo(button25.Text[0]) == 0)
-                {
-                    OpenLetter(i);
-                    isFind = true;
+                //При сравнении не учитываем первый(нулевой) символ и последний. Ибо они уже открыты
+                for (int i = 1; i < questWord.Length - 1; i++)
+                {                    
+                    if (questWord[i].Equals((sender as Button).Text[0]))
+                    {
+                        OpenLetter(i);
+                        guessedLetters++;
+                        isFind = true;
+                    }
                 }
             }
             if (isFind == false)
@@ -273,7 +315,18 @@ namespace Gallows
                 countError++;
                 UpdateVisel();
             }
+            if(guessedLetters == countWin)
+            {
+                YouWin();
+                
+            }
+            if(countError == 9)
+            {
+                GameOver();                
+            }
+            
         }
+      
     }
 
 }

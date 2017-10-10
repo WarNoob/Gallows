@@ -20,7 +20,7 @@ namespace Gallows
         LevelDifficulty level;
         string name;
         string questWord;
-        Random random;
+        Random random;   
         public InitFrame()
         {
             InitializeComponent();
@@ -28,18 +28,19 @@ namespace Gallows
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            random = new Random();
-            this.name = textBoxPlayerName.Text;         
 
+            random = new Random();
+            this.name = textBoxPlayerName.Text;
+            InitList();
             if (radioButtonEasy.Enabled)
-                level =  LevelDifficulty.Easy;
+                level = LevelDifficulty.Easy;
             else if (radioButtonNorm.Enabled)
                 level = LevelDifficulty.Normal;
             else
                 level = LevelDifficulty.Hard;
 
-            
-            switch(level)
+
+            switch (level)
             {
                 case LevelDifficulty.Easy:
                     {
@@ -57,12 +58,11 @@ namespace Gallows
                         break;
                     }
             }
-                
 
-            GameFrame frm = new GameFrame(level, name, questWord);
-            
 
-            this.Hide();                 
+            GameFrame frm = new GameFrame(level, name, questWord, this);
+
+            this.Hide();
         }
         private void InitList()
         {

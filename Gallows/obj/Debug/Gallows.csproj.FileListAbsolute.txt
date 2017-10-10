@@ -1,1 +1,10 @@
 C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\Gallows\bin\Debug\Gallows.exe.config
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\Gallows\bin\Debug\Gallows.exe
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\Gallows\bin\Debug\Gallows.pdb
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\Gallows\obj\Debug\Gallows.csprojResolveAssemblyReference.cache
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\Gallows\obj\Debug\Gallows.GameFrame.resources
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\Gallows\obj\Debug\Gallows.InitFrame.resources
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\Gallows\obj\Debug\Gallows.Properties.Resources.resources
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\Gallows\obj\Debug\Gallows.csproj.GenerateResource.Cache
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\Gallows\obj\Debug\Gallows.exe
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\Gallows\obj\Debug\Gallows.pdb
