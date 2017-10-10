@@ -12,24 +12,26 @@ namespace Gallows
 {
     public partial class GameFrame : Form
     {
-        //Коллекции для хранения слов по сложности
-        List<QuestWord> easyList;
-        List<QuestWord> normList;
-        List<QuestWord> hardList;
-        //Уровень сложности игры
+        //Уровень сложности
         LevelDifficulty levelDif;
         //Имя игрока
         string name;
+        //Квествовое слово
+        string questWord;
+        //Счётчик ошибок при выборе буквы
+        int countError;
 
         float scale = 0.1F;
         int scale_c = 0;
         bool bboool = false;
 
-        public GameFrame(LevelDifficulty levelDif, string name)
+        public GameFrame(LevelDifficulty levelDif, string name, string questWord)
         {
             InitializeComponent();            
             this.levelDif = levelDif;
             this.name = name;
+            this.questWord = questWord;
+            countError = 0;
             this.Show();
         }
 
@@ -40,6 +42,12 @@ namespace Gallows
         private void GameFrame_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+        //Метод обновляет висельницу в зависимости от колличества жизней
+        private void UpdateVisel()
+        {
+            string str = "pics/visel" + countError + ".png";//строка доступа к изображению, зависит от кол-во ошибок
+            pictureBox2.Image = Image.FromFile(str);
         }
 
         private void GameFrame_Load(object sender, EventArgs e)
