@@ -58,10 +58,8 @@
     <Compile Include="InitFrame.Designer.cs">
       <DependentUpon>InitFrame.cs</DependentUpon>
     </Compile>
-    <Compile Include="LevelDifficulty.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuestWord.cs" />
     <EmbeddedResource Include="GameFrame.resx">
       <DependentUpon>GameFrame.cs</DependentUpon>
     </EmbeddedResource>

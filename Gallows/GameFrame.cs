@@ -12,111 +12,10 @@ namespace Gallows
 {
     public partial class GameFrame : Form
     {
-        //Уровень сложности
-        LevelDifficulty levelDif;
-        //Имя игрока
-        string name;
-        //Квествовое слово
-        string questWord;
-        //Счётчик ошибок при выборе буквы
-        int countError;
-        //Коллекция которая хранит ссылки на texBox которые отображат questWord
-        List<TextBox> listBoxLetters;
-
-        float scale = 0.1F;
-        int scale_c = 0;
-        bool bboool = false;
-
-        public GameFrame(LevelDifficulty levelDif, string name, string questWord)
+        public GameFrame()
         {
-            InitializeComponent();            
-            this.levelDif = levelDif;
-            this.name = name;
-            this.questWord = questWord;
-            listBoxLetters = new List<TextBox>();
-            countError = 0;
-
-            //Инициализация интерфейса отображения квестового слова
-            DrawWord(questWord);
-            OpenLetter(0);
-            OpenLetter(questWord.Length - 1);
-            this.Show();
+            InitializeComponent();
         }
-
-
-        //Из-за того что первую форму надо скрыть а не
-        //закрыть, при открытии второй(иначе главный потиок программы закрываться и 
-        //прилажение закрываеться) нужен этот обработчик
-        private void GameFrame_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-        //Отрисовака всего слова в начале игры
-        private void DrawWord(string word)
-        {
-            Point point = new Point(28, 34);
-            for (int i = 0; i < word.Length; i++)
-            {
-                TextBox boxLetter = new TextBox();
-                
-                boxLetter.BackColor = System.Drawing.Color.Black;
-                boxLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-                boxLetter.ForeColor = System.Drawing.Color.Gold;
-                boxLetter.Location = point;
-                boxLetter.Name = "boxLetter" + i;
-                boxLetter.Size = new System.Drawing.Size(32, 32);
-                boxLetter.TabIndex = 12;
-                boxLetter.Text = "#";
-                boxLetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-
-                listBoxLetters.Add(boxLetter);
-
-                point.X += 26; 
-            }
-
-           
-        }
-        //Открытие определённной буквы
-        private void OpenLetter(int index)
-        {
-            listBoxLetters[index].Text = "" + questWord[index];
-        }
-
-        #region Методы обновления висельницы, GameOver, YouWin
-        //Метод обновляет висельницу в зависимости от колличества жизней
-        private void UpdateVisel()
-        {
-            string str = "pics/visel" + countError + ".png";//строка доступа к изображению, зависит от кол-во ошибок
-            pictureBox2.Image = Image.FromFile(str);
-        }
-
-        private void GameOver()
-        {
-            scale = 0.1F; scale_c = 0;
-            pictureBox2.Visible = false;
-            panel1.Visible = false;
-            pictureBox1.Image = Image.FromFile("pics/gameover.png");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
-
-            pictureBox1.Visible = true;
-            end.Enabled = true;
-        }
-
-        private void YouWin()
-        {
-            scale = 0.1F; scale_c = 0;
-            pictureBox2.Visible = false;
-            panel1.Visible = false;
-            pictureBox1.Image = Image.FromFile("pics/youwin.png");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
-
-            pictureBox1.Visible = true;
-            end.Enabled = true;
-
-        }
-        #endregion
 
         private void GameFrame_Load(object sender, EventArgs e)
         {
@@ -124,7 +23,9 @@ namespace Gallows
             pictureBox1.MouseLeave += new EventHandler(pictureBox1_MouseLeave);
         }
 
-    
+        private float scale = 0.1F;
+        private int scale_c = 0;
+        private bool bboool = false;
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
@@ -156,6 +57,8 @@ namespace Gallows
             };
         }
 
+
+
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
             if (!bboool)
@@ -176,33 +79,8 @@ namespace Gallows
                 bboool = true;
             };
         }
-        #region Тестовые кнопки для медия 
-        private void buttonGameOver_Click(object sender, EventArgs e)
-        {
-            scale = 0.1F; scale_c = 0;
-            pictureBox2.Visible = false;
-            panel1.Visible = false;
-            pictureBox1.Image = Image.FromFile("pics/gameover.png");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
+        
 
-            pictureBox1.Visible = true;
-            end.Enabled = true;
-        }
-
-        private void buttonYouWin_Click(object sender, EventArgs e)
-        {
-            scale = 0.1F; scale_c = 0;
-            pictureBox2.Visible = false;
-            panel1.Visible = false;
-            pictureBox1.Image = Image.FromFile("pics/youwin.png");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
-
-            pictureBox1.Visible = true;
-            end.Enabled = true;
-
-        }
         private void button1_Click(object sender, EventArgs e)
         {
             pictureBox2.Image = Image.FromFile("pics/visel0.png");
@@ -253,26 +131,35 @@ namespace Gallows
             pictureBox2.Image = Image.FromFile("pics/visel9.png");
         }
 
-        #endregion
-
-        private void button25_Click(object sender, EventArgs e)
+        private void button12_Click(object sender, EventArgs e)
         {
-            bool isFind = false;
+            scale = 0.1F; scale_c = 0;
+            pictureBox2.Visible = false;
+            panel1.Visible = false;
+            pictureBox1.Image = Image.FromFile("pics/youwin.png");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
 
-            //При сравнении не учитываем первый(нулевой) символ и последний. Ибо они уже открыты
-            for (int i = 1; i < questWord.Length - 1; i++)
-            {
-                if (questWord[i].CompareTo(button25.Text[0]) == 0)
-                {
-                    OpenLetter(i);
-                    isFind = true;
-                }
-            }
-            if (isFind == false)
-            {
-                countError++;
-                UpdateVisel();
-            }
+            pictureBox1.Visible = true;
+            end.Enabled = true;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            scale = 0.1F; scale_c = 0;
+            pictureBox2.Visible = false;
+            panel1.Visible = false;
+            pictureBox1.Image = Image.FromFile("pics/gameover.png");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
+
+            pictureBox1.Visible = true;
+            end.Enabled = true;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
