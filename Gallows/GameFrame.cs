@@ -257,13 +257,22 @@ namespace Gallows
 
         private void button25_Click(object sender, EventArgs e)
         {
+            bool isFind = false;
+
             //При сравнении не учитываем первый(нулевой) символ и последний. Ибо они уже открыты
             for (int i = 1; i < questWord.Length - 1; i++)
             {
                 if (questWord[i].CompareTo(button25.Text[0]) == 0)
+                {
                     OpenLetter(i);
-            }                  
-            
+                    isFind = true;
+                }
+            }
+            if (isFind == false)
+            {
+                countError++;
+                UpdateVisel();
+            }
         }
     }
 
