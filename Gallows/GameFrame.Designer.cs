@@ -801,6 +801,7 @@
             this.button25.TabIndex = 35;
             this.button25.Text = "Й";
             this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
             // 
             // button13
             // 
@@ -941,7 +942,7 @@
             this.textBox1.Size = new System.Drawing.Size(32, 32);
             this.textBox1.TabIndex = 12;
             this.textBox1.Text = "А";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;           
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonYouWin
             // 

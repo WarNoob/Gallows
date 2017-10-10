@@ -252,9 +252,19 @@ namespace Gallows
         {
             pictureBox2.Image = Image.FromFile("pics/visel9.png");
         }
+
         #endregion
 
-
+        private void button25_Click(object sender, EventArgs e)
+        {
+            //При сравнении не учитываем первый(нулевой) символ и последний. Ибо они уже открыты
+            for (int i = 1; i < questWord.Length - 1; i++)
+            {
+                if (questWord[i].CompareTo(button25.Text[0]) == 0)
+                    OpenLetter(i);
+            }                  
+            
+        }
     }
 
 }
