@@ -11,8 +11,7 @@ using System.Windows.Forms;
 namespace Gallows
 {
     public partial class GameFrame : Form
-    {
-        InitFrame initFrame;
+    {        
         //Уровень сложности
         LevelDifficulty levelDif;
         //Имя игрока
@@ -31,15 +30,17 @@ namespace Gallows
         int scale_c = 0;
         bool bboool = false;
 
-        public GameFrame(LevelDifficulty levelDif, string name, string questWord, InitFrame initFrame)
+        public GameFrame(LevelDifficulty levelDif, string name, string questWord)
         {
-            DrawWord(questWord);
-            InitializeComponent();
-            
             this.levelDif = levelDif;
             this.name = name;
             this.questWord = questWord;
-            this.initFrame = initFrame;
+
+            DrawWord(questWord);
+            InitializeComponent();
+            
+            
+            
 
             countError = 0;
             //Счётчик сколько надо угадать слов, кроме первых 2 открытых
@@ -51,30 +52,43 @@ namespace Gallows
         }
 
 
-        //Из-за того что первую форму надо скрыть а не
-        //закрыть, при открытии второй(иначе главный потиок программы закрываться и 
-        //прилажение закрываеться) нужен этот обработчик
-        private void GameFrame_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
+       
         //Отрисовака всего слова в начале игры
         public void DrawWord(string word)
         {
-            Point point = new Point(500, 34);
+            Point point = new Point();
+            switch (levelDif)
+            {
+                case LevelDifficulty.Easy:
+                    {
+                        point = new Point(580, 75);
+                        break;
+                    }
+                case LevelDifficulty.Normal:
+                    {
+                        point = new Point(510, 75);
+                        break;
+                    }
+                case LevelDifficulty.Hard:
+                    {
+                        point = new Point(450, 75);
+                        break;
+                    }
+            }
+            
             for (int i = 0; i < word.Length; i++)
             {
                 TextBox boxLetter = new TextBox();
 
                 boxLetter.BackColor = System.Drawing.Color.Black;
                 boxLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-                boxLetter.ForeColor = System.Drawing.Color.Red;
+                boxLetter.ForeColor = System.Drawing.Color.Gold;
                 boxLetter.Location = point;
                 boxLetter.Name = "boxLetter" + i;
                 boxLetter.Size = new System.Drawing.Size(32, 32);
                 boxLetter.TabIndex = 12;
                 boxLetter.Text = "#";                
-                boxLetter.Enabled = false;
+                boxLetter.Enabled = true;
                 boxLetter.Visible = false;
                 boxLetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 
@@ -125,7 +139,18 @@ namespace Gallows
 
             pictureBox1.Visible = true;           
             end.Enabled = true;
-            initFrame.Show();
+
+            DialogResult result = MessageBox.Show("Начать заново?", "Game Over", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                var form = Application.OpenForms[0];
+                form.Show();
+                this.Close();
+            }
+            else if(result == DialogResult.No)
+            {
+                Application.Exit();
+            }       
         }
 
         private void YouWin()
@@ -140,7 +165,18 @@ namespace Gallows
 
             pictureBox1.Visible = true;
             end.Enabled = true;
-            initFrame.Show();
+
+            DialogResult result = MessageBox.Show("Начать заново?", "You Win!!", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                var form = Application.OpenForms[0];
+                form.Show();
+                this.Close();
+            }
+            else if (result == DialogResult.No)
+            {
+                Application.Exit();
+            }
         }
         #endregion
 
@@ -212,86 +248,6 @@ namespace Gallows
             };           
 
         }
-        #region Тестовые кнопки для медия 
-        private void buttonGameOver_Click(object sender, EventArgs e)
-        {
-            VisibleWordF();
-            scale = 0.1F; scale_c = 0;
-            pictureBox2.Visible = false;
-            panel1.Visible = false;
-            pictureBox1.Image = Image.FromFile("pics/gameover.png");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
-
-            pictureBox1.Visible = true;
-            end.Enabled = true;
-        }
-
-        private void buttonYouWin_Click(object sender, EventArgs e)
-        {
-            VisibleWordF();
-            scale = 0.1F; scale_c = 0;
-            pictureBox2.Visible = false;
-            panel1.Visible = false;
-            pictureBox1.Image = Image.FromFile("pics/youwin.png");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
-
-            pictureBox1.Visible = true;
-            end.Enabled = true;
-
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            pictureBox2.Image = Image.FromFile("pics/visel0.png");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            pictureBox2.Image = Image.FromFile("pics/visel1.png");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            pictureBox2.Image = Image.FromFile("pics/visel2.png");
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            pictureBox2.Image = Image.FromFile("pics/visel3.png");
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            pictureBox2.Image = Image.FromFile("pics/visel4.png");
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            pictureBox2.Image = Image.FromFile("pics/visel5.png");
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            pictureBox2.Image = Image.FromFile("pics/visel6.png");
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            pictureBox2.Image = Image.FromFile("pics/visel7.png");
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            pictureBox2.Image = Image.FromFile("pics/visel8.png");
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            pictureBox2.Image = Image.FromFile("pics/visel9.png");
-        }
-
-        #endregion
 
         private void button25_Click(object sender, EventArgs e)
         {
@@ -326,7 +282,11 @@ namespace Gallows
             }
             
         }
-      
+
+        private void GameFrame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 
 }

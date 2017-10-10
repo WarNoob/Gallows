@@ -32,9 +32,9 @@ namespace Gallows
             random = new Random();
             this.name = textBoxPlayerName.Text;
             InitList();
-            if (radioButtonEasy.Enabled)
+            if (radioButtonEasy.Checked)
                 level = LevelDifficulty.Easy;
-            else if (radioButtonNorm.Enabled)
+            else if (radioButtonNorm.Checked)
                 level = LevelDifficulty.Normal;
             else
                 level = LevelDifficulty.Hard;
@@ -60,7 +60,7 @@ namespace Gallows
             }
 
 
-            GameFrame frm = new GameFrame(level, name, questWord, this);
+            GameFrame frm = new GameFrame(level, name, questWord);
 
             this.Hide();
         }
