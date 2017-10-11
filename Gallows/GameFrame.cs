@@ -28,7 +28,7 @@ namespace Gallows
 
         float scale = 0.1F;
         int scale_c = 0;
-        bool bboool = false;
+        bool bboool = true;
 
         public GameFrame(LevelDifficulty levelDif, string name, string questWord)
         {
@@ -50,9 +50,7 @@ namespace Gallows
 
             this.Show();            
         }
-
-
-       
+ 
         //Отрисовака всего слова в начале игры
         public void DrawWord(string word)
         {
@@ -180,6 +178,7 @@ namespace Gallows
         }
         #endregion
 
+        //Здесь добавляются обработки наведения/покидания пикчербокса мышью
         private void GameFrame_Load(object sender, EventArgs e)
         {
             pictureBox1.MouseEnter += new EventHandler(pictureBox1_MouseEnter);
@@ -187,11 +186,11 @@ namespace Gallows
 
         }
 
-
+        #region Анимация начала/конца игры - обрабочики таймера
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
-            pictureBox1.Location = new Point(385 - (pictureBox1.Size.Width / 2), 230 - (pictureBox1.Size.Height / 2));
+            pictureBox1.Location = new Point(450 - (pictureBox1.Size.Width / 2), 225 - (pictureBox1.Size.Height / 2));
 
             scale = scale + 0.1F - (0.02F * scale_c);
             if (scale >= (0.2F * scale_c))
@@ -200,14 +199,15 @@ namespace Gallows
 
             if (scale >= 1)
             {
-                start.Enabled = false;               
+                start.Enabled = false;
+                bboool = false;
             };
             
         }
         private void timer2_Tick(object sender, EventArgs e)
         {
             pictureBox1.Size = new Size((int)(560 * scale), (int)(130 * scale));
-            pictureBox1.Location = new Point(385 - (pictureBox1.Size.Width / 2), 230 - (pictureBox1.Size.Height / 2));
+            pictureBox1.Location = new Point(450 - (pictureBox1.Size.Width / 2), 225 - (pictureBox1.Size.Height / 2));
 
             scale = scale + 0.1F - (0.02F * scale_c);
             if (scale >= (0.2F * scale_c))
@@ -220,20 +220,29 @@ namespace Gallows
             };
 
         }
+        #endregion
 
+        #region обработчики наведения/покидания пикчербокса мышью
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
             if (!bboool)
             {
-                pictureBox1.Image = Image.FromFile("pics/start2.png");               
+                pictureBox1.Size = new Size((int)(765 * .95F), (int)(460 * .95F));
+                pictureBox1.Location = new Point(450 - (pictureBox1.Size.Width / 2), 225 - (pictureBox1.Size.Height / 2));
             }
 
         }
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
             if (!bboool)
-                pictureBox1.Image = Image.FromFile("pics/start1.png");
+            {
+                pictureBox1.Size = new Size(765, 460);
+                pictureBox1.Location = new Point(450 - (pictureBox1.Size.Width / 2), 225 - (pictureBox1.Size.Height / 2));
+            }
         }
+        #endregion
+        
+        // Нажатие на картинку Старт.
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (!bboool)
@@ -249,6 +258,7 @@ namespace Gallows
 
         }
 
+        //Нажатие на кнопку с буквой
         private void button25_Click(object sender, EventArgs e)
         {
             bool isFind = false;
@@ -280,6 +290,8 @@ namespace Gallows
             {
                 GameOver();                
             }
+
+            (sender as Button).Enabled = false;
             
         }
 
