@@ -106,5 +106,10 @@ namespace Gallows
                 new QuestWord() {Word = "общефедеральный" }
             };
         }
+
+        private void InitFrame_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

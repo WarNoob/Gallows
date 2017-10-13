@@ -48,7 +48,8 @@ namespace Gallows
             guessedLetters = 0;
 
 
-            this.Show();            
+            this.Show();
+
         }
  
         //Отрисовака всего слова в начале игры
@@ -138,7 +139,9 @@ namespace Gallows
             pictureBox1.Visible = true;           
             end.Enabled = true;
 
-            DialogResult result = MessageBox.Show("Начать заново?", "Game Over", MessageBoxButtons.YesNo);
+            string str = name + ", эх Вы..! :(((\nЯ даже не знаю что и сказать... :(((\nБыло же так легко.\nВам должно быть очень стыдно!\n\n";
+
+            DialogResult result = MessageBox.Show(str + "Начать заново?", "Game Over", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 var form = Application.OpenForms[0];
@@ -164,7 +167,8 @@ namespace Gallows
             pictureBox1.Visible = true;
             end.Enabled = true;
 
-            DialogResult result = MessageBox.Show("Начать заново?", "You Win!!", MessageBoxButtons.YesNo);
+            string str = name + ", ух Ты!!!\nСлов нет!!!\nЭто было нелегко!\nНо Вы справились!!!\nДолжно быть Вы гордитесь собой.\n\n";
+            DialogResult result = MessageBox.Show(str + "Начать заново?", "You Win!!", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 var form = Application.OpenForms[0];
@@ -254,6 +258,12 @@ namespace Gallows
                 bboool = true;
                 OpenLetter(0);
                 OpenLetter(questWord.Length - 1);
+
+                char a = questWord.ToUpper()[0];
+                char b = questWord.ToUpper()[questWord.Length - 1];
+                for (int i = 14; i < 46; i++)
+                    if ((panel1.Controls["button" + i].Text[0] == a)|| (panel1.Controls["button" + i].Text[0] == b))
+                        panel1.Controls["button" + i].Enabled = false;
             };           
 
         }
@@ -291,8 +301,7 @@ namespace Gallows
                 GameOver();                
             }
 
-            (sender as Button).Enabled = false;
-            
+            (sender as Button).Enabled = false;           
         }
 
         private void GameFrame_FormClosing(object sender, FormClosingEventArgs e)
