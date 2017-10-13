@@ -20,7 +20,7 @@ namespace Gallows
         LevelDifficulty level;
         string name;
         string questWord;
-        Random random;   
+        Random random;
         public InitFrame()
         {
             InitializeComponent();
@@ -59,10 +59,23 @@ namespace Gallows
                     }
             }
 
+            if(Application.OpenForms.Count == 1)
+            {
+                GameFrame frm = new GameFrame(level, name, questWord);
+                frm.Show();
+                this.Hide();
+            }
+            else
+            {
+                Application.OpenForms[Application.OpenForms.Count - 1].Hide();
+                GameFrame frm = new GameFrame(level, name, questWord);
+                this.Hide();
+                frm.Show();
+                Application.OpenForms[Application.OpenForms.Count - 2].Close();
+            }
+           
 
-            GameFrame frm = new GameFrame(level, name, questWord);
-
-            this.Hide();
+            
         }
         private void InitList()
         {
@@ -106,5 +119,6 @@ namespace Gallows
                 new QuestWord() {Word = "общефедеральный" }
             };
         }
+
     }
 }

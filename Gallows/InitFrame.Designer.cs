@@ -122,7 +122,7 @@
             this.MinimizeBox = false;
             this.Name = "InitFrame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Начать игру!";
+            this.Text = "Начать игру!";           
             this.ResumeLayout(false);
             this.PerformLayout();
 

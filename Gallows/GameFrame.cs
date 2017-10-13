@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Gallows
 {
     public partial class GameFrame : Form
-    {        
+    {
         //Уровень сложности
         LevelDifficulty levelDif;
         //Имя игрока
@@ -38,19 +38,15 @@ namespace Gallows
 
             DrawWord(questWord);
             InitializeComponent();
-            
-            
-            
+
 
             countError = 0;
             //Счётчик сколько надо угадать слов, кроме первых 2 открытых
-            countWin = questWord.Length - 2;
+            countWin = questWord.Length;
             guessedLetters = 0;
 
-
-            this.Show();            
         }
- 
+        #region Отрисовка слова и отдельных букв
         //Отрисовака всего слова в начале игры
         public void DrawWord(string word)
         {
@@ -73,7 +69,7 @@ namespace Gallows
                         break;
                     }
             }
-            
+
             for (int i = 0; i < word.Length; i++)
             {
                 TextBox boxLetter = new TextBox();
@@ -85,7 +81,7 @@ namespace Gallows
                 boxLetter.Name = "boxLetter" + i;
                 boxLetter.Size = new System.Drawing.Size(32, 32);
                 boxLetter.TabIndex = 12;
-                boxLetter.Text = "#";                
+                boxLetter.Text = "#";
                 boxLetter.Enabled = true;
                 boxLetter.Visible = false;
                 boxLetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -116,6 +112,26 @@ namespace Gallows
             string str = "" + questWord[index];
             listBoxLetters[index].Text = str.ToUpper();
         }
+        private void OpenFirstLastLetter()
+        {
+
+            for (int i = 0; i < questWord.Length; i++)
+            {
+                if (questWord[i] == questWord[0] || questWord[i] == questWord[questWord.Length - 1])
+                {
+                    OpenLetter(i);
+                    countWin--;
+                }
+            }
+            char first = questWord.ToUpper()[0];
+            char last = questWord.ToUpper()[questWord.Length - 1];
+
+            for (int i = 0; i < 32; i++)
+                if ((panel1.Controls[i].Text[0] == first)
+                    || (panel1.Controls[i].Text[0] == last))
+                    panel1.Controls[i].Enabled = false;
+        }
+        #endregion
 
         #region Методы обновления висельницы, GameOver, YouWin
         //Метод обновляет висельницу в зависимости от колличества жизней
@@ -128,27 +144,29 @@ namespace Gallows
         private void GameOver()
         {
             VisibleWordF();
-            scale = 0.1F; scale_c = 0;            
+            scale = 0.1F; scale_c = 0;
             pictureBox2.Visible = false;
             panel1.Visible = false;
             pictureBox1.Image = Image.FromFile("pics/gameover.png");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
 
-            pictureBox1.Visible = true;           
+            pictureBox1.Visible = true;
             end.Enabled = true;
 
-            DialogResult result = MessageBox.Show("Начать заново?", "Game Over", MessageBoxButtons.YesNo);
+            string str = name + ", эх Вы..! :(((\nЯ даже не знаю что и сказать... :(((\nБыло же так легко.\nВам должно быть очень стыдно!\n\n";
+
+            DialogResult result = MessageBox.Show(str + "Начать заново?", "Game Over", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 var form = Application.OpenForms[0];
                 form.Show();
-                this.Close();
+                this.Hide();
             }
-            else if(result == DialogResult.No)
+            else if (result == DialogResult.No)
             {
-                Application.Exit();
-            }       
+                Environment.Exit(0);
+            }
         }
 
         private void YouWin()
@@ -164,16 +182,17 @@ namespace Gallows
             pictureBox1.Visible = true;
             end.Enabled = true;
 
-            DialogResult result = MessageBox.Show("Начать заново?", "You Win!!", MessageBoxButtons.YesNo);
+            string str = name + ", ух Ты!!!\nСлов нет!!!\nЭто было нелегко!\nНо Вы справились!!!\nДолжно быть Вы гордитесь собой.\n\n";
+            DialogResult result = MessageBox.Show(str + "Начать заново?", "You Win!!", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 var form = Application.OpenForms[0];
                 form.Show();
-                this.Close();
+                this.Hide();
             }
             else if (result == DialogResult.No)
             {
-                Application.Exit();
+                Environment.Exit(0);
             }
         }
         #endregion
@@ -202,7 +221,7 @@ namespace Gallows
                 start.Enabled = false;
                 bboool = false;
             };
-            
+
         }
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -241,7 +260,7 @@ namespace Gallows
             }
         }
         #endregion
-        
+
         // Нажатие на картинку Старт.
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -252,9 +271,8 @@ namespace Gallows
                 pictureBox2.Visible = true;
                 panel1.Visible = true;
                 bboool = true;
-                OpenLetter(0);
-                OpenLetter(questWord.Length - 1);
-            };           
+                OpenFirstLastLetter();
+            };
 
         }
 
@@ -267,7 +285,7 @@ namespace Gallows
             {
                 //При сравнении не учитываем первый(нулевой) символ и последний. Ибо они уже открыты
                 for (int i = 1; i < questWord.Length - 1; i++)
-                {                    
+                {
                     if (questWord[i].Equals((sender as Button).Text[0]))
                     {
                         OpenLetter(i);
@@ -281,24 +299,29 @@ namespace Gallows
                 countError++;
                 UpdateVisel();
             }
-            if(guessedLetters == countWin)
+            if (guessedLetters == countWin)
             {
                 YouWin();
-                
+
             }
-            if(countError == 9)
+            if (countError == 9)
             {
-                GameOver();                
+                GameOver();
             }
 
             (sender as Button).Enabled = false;
-            
         }
 
         private void GameFrame_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            /*if (Application.OpenForms.Count > 2)
+                this.Close();
+            else
+                Environment.Exit(0);*/
+            if (Application.OpenForms.Count <= 2)
+                Environment.Exit(0);            
         }
+
     }
 
 }
