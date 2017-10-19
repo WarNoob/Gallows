@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
+
 
 namespace Gallows
 {
@@ -28,7 +30,10 @@ namespace Gallows
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-
+            StartGame(Application.OpenForms);
+        }
+        public GameFrame StartGame(FormCollection OpenForms)
+        {
             random = new Random();
             this.name = textBoxPlayerName.Text;
             InitList();
@@ -59,24 +64,23 @@ namespace Gallows
                     }
             }
 
-            if(Application.OpenForms.Count == 1)
+            if (OpenForms.Count == 1)
             {
                 GameFrame frm = new GameFrame(level, name, questWord);
                 frm.Show();
                 this.Hide();
+                return frm;
             }
             else
             {
-                Application.OpenForms[Application.OpenForms.Count - 1].Hide();
+                OpenForms[OpenForms.Count - 1].Hide();
                 GameFrame frm = new GameFrame(level, name, questWord);
                 this.Hide();
                 frm.Show();
-                Application.OpenForms[Application.OpenForms.Count - 2].Close();
+                OpenForms[OpenForms.Count - 2].Close();
+                return frm;
             }
-           
-
-            
-        }
+        } 
         private void InitList()
         {
             easyList = new List<QuestWord>

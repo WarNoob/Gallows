@@ -313,11 +313,7 @@ namespace Gallows
         }
 
         private void GameFrame_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            /*if (Application.OpenForms.Count > 2)
-                this.Close();
-            else
-                Environment.Exit(0);*/
+        {          
             if (Application.OpenForms.Count <= 2)
                 Environment.Exit(0);            
         }

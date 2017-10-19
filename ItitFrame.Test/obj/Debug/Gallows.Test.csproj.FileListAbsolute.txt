@@ -1,0 +1,9 @@
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\bin\Debug\ItitFrame.Test.dll
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\bin\Debug\ItitFrame.Test.pdb
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\bin\Debug\Gallows.exe
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\bin\Debug\Gallows.pdb
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\obj\Debug\Gallows.Test.csprojResolveAssemblyReference.cache
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\obj\Debug\ItitFrame.Test.dll
+C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\obj\Debug\ItitFrame.Test.pdb
