@@ -24,7 +24,7 @@ namespace Gallows
         //Сколько букв угадано. Для победы countWin == guessedLetters
         int guessedLetters;
         //Коллекция которая хранит ссылки на texBox которые отображат questWord
-        List<TextBox> listBoxLetters = new List<TextBox>();
+        public readonly List<TextBox> listBoxLetters = new List<TextBox>();
 
         float scale = 0.1F;
         int scale_c = 0;
@@ -36,9 +36,8 @@ namespace Gallows
             this.name = name;
             this.questWord = questWord;
 
-            DrawWord(questWord);
+            DrawWord();
             InitializeComponent();
-
 
             countError = 0;
             //Счётчик сколько надо угадать слов, кроме первых 2 открытых
@@ -48,7 +47,7 @@ namespace Gallows
         }
         #region Отрисовка слова и отдельных букв
         //Отрисовака всего слова в начале игры
-        public void DrawWord(string word)
+        public void DrawWord()
         {
             Point point = new Point();
             switch (levelDif)
@@ -70,7 +69,7 @@ namespace Gallows
                     }
             }
 
-            for (int i = 0; i < word.Length; i++)
+            for (int i = 0; i < this.questWord.Length; i++)
             {
                 TextBox boxLetter = new TextBox();
 
@@ -79,8 +78,7 @@ namespace Gallows
                 boxLetter.ForeColor = System.Drawing.Color.Gold;
                 boxLetter.Location = point;
                 boxLetter.Name = "boxLetter" + i;
-                boxLetter.Size = new System.Drawing.Size(32, 32);
-                boxLetter.TabIndex = 12;
+                boxLetter.Size = new System.Drawing.Size(32, 32);               
                 boxLetter.Text = "#";
                 boxLetter.Enabled = true;
                 boxLetter.Visible = false;
@@ -201,8 +199,7 @@ namespace Gallows
         private void GameFrame_Load(object sender, EventArgs e)
         {
             pictureBox1.MouseEnter += new EventHandler(pictureBox1_MouseEnter);
-            pictureBox1.MouseLeave += new EventHandler(pictureBox1_MouseLeave);
-
+            pictureBox1.MouseLeave += new EventHandler(pictureBox1_MouseLeave);            
         }
 
         #region Анимация начала/конца игры - обрабочики таймера
@@ -266,11 +263,14 @@ namespace Gallows
         {
             if (!bboool)
             {
-                pictureBox1.Visible = false;
+
                 VisibleWordT();
+                pictureBox1.Visible = false;
+               
                 pictureBox2.Visible = true;
                 panel1.Visible = true;
                 bboool = true;
+                
                 OpenFirstLastLetter();
             };
 

@@ -5,7 +5,9 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallows", "Gallows\Gallows.csproj", "{666B1F0D-4559-4D1E-A492-E245D0C4EC41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallows.Test", "ItitFrame.Test\Gallows.Test.csproj", "{52FDC8D3-FBFC-4987-83F7-5F66B8641EBD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitFrame.Test", "ItitFrame.Test\InitFrame.Test.csproj", "{52FDC8D3-FBFC-4987-83F7-5F66B8641EBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrame.Test", "GameFrame.Test\GameFrame.Test.csproj", "{7BA7EE52-A696-43BD-8FFF-97F16AB6F902}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{52FDC8D3-FBFC-4987-83F7-5F66B8641EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52FDC8D3-FBFC-4987-83F7-5F66B8641EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52FDC8D3-FBFC-4987-83F7-5F66B8641EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BA7EE52-A696-43BD-8FFF-97F16AB6F902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BA7EE52-A696-43BD-8FFF-97F16AB6F902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BA7EE52-A696-43BD-8FFF-97F16AB6F902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BA7EE52-A696-43BD-8FFF-97F16AB6F902}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
