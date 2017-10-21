@@ -47,11 +47,31 @@ namespace GameFrameTest
                 Assert.AreEqual(expected[i].Enabled, game.listBoxLetters[i].Enabled);
                 Assert.AreEqual(expected[i].Visible, game.listBoxLetters[i].Visible);
                 Assert.AreEqual(expected[i].TextAlign, game.listBoxLetters[i].TextAlign);
-            }
-            //CollectionAssert.IsSubsetOf(expected, game.Controls);
-            //CollectionAssert.AreEqual(expected, actual);
-            //CollectionAssert.Contains(game.Controls, expected[0]);
-            //CollectionAssert.AreEquivalent(expected, game.listBoxLetters);
+            }            
+        }
+        [TestMethod]
+        public void GameFrame_OpenFirstLastLetter_Open2Letter()
+        {
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Лёша", "марка");
+            game.OpenFirstLastLetter();
+            Assert.AreEqual("М", game.Controls[0].Text);
+            Assert.AreEqual("А", game.Controls[4].Text);
+        }
+        [TestMethod]        
+        public void GameFrame_LetterOn_TrueLetter()
+        {
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Лёша", "марка");
+            Button button = new Button();
+            button.Text = "А";             
+            Assert.IsTrue(game.LetterOn(button));
+        }
+        [TestMethod]
+        public void GameFrame_LetterOn_FalseLetter()
+        {
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Лёша", "марка");
+            Button button = new Button();
+            button.Text = "Ж";
+            Assert.IsFalse(game.LetterOn(button));
         }
     }
 }

@@ -166,7 +166,7 @@
             this.buttonLetter23.TabIndex = 66;
             this.buttonLetter23.Text = "Ю";
             this.buttonLetter23.UseVisualStyleBackColor = false;
-            this.buttonLetter23.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter23.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter24
             // 
@@ -186,7 +186,7 @@
             this.buttonLetter24.TabIndex = 65;
             this.buttonLetter24.Text = "Б";
             this.buttonLetter24.UseVisualStyleBackColor = false;
-            this.buttonLetter24.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter24.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter25
             // 
@@ -206,7 +206,7 @@
             this.buttonLetter25.TabIndex = 64;
             this.buttonLetter25.Text = "Ь";
             this.buttonLetter25.UseVisualStyleBackColor = false;
-            this.buttonLetter25.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter25.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter26
             // 
@@ -226,7 +226,7 @@
             this.buttonLetter26.TabIndex = 63;
             this.buttonLetter26.Text = "Т";
             this.buttonLetter26.UseVisualStyleBackColor = false;
-            this.buttonLetter26.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter26.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter27
             // 
@@ -246,7 +246,7 @@
             this.buttonLetter27.TabIndex = 62;
             this.buttonLetter27.Text = "И";
             this.buttonLetter27.UseVisualStyleBackColor = false;
-            this.buttonLetter27.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter27.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter28
             // 
@@ -266,7 +266,7 @@
             this.buttonLetter28.TabIndex = 61;
             this.buttonLetter28.Text = "М";
             this.buttonLetter28.UseVisualStyleBackColor = false;
-            this.buttonLetter28.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter28.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter29
             // 
@@ -286,7 +286,7 @@
             this.buttonLetter29.TabIndex = 60;
             this.buttonLetter29.Text = "С";
             this.buttonLetter29.UseVisualStyleBackColor = false;
-            this.buttonLetter29.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter29.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter30
             // 
@@ -306,7 +306,7 @@
             this.buttonLetter30.TabIndex = 59;
             this.buttonLetter30.Text = "Ч";
             this.buttonLetter30.UseVisualStyleBackColor = false;
-            this.buttonLetter30.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter30.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter31
             // 
@@ -326,7 +326,7 @@
             this.buttonLetter31.TabIndex = 58;
             this.buttonLetter31.Text = "Я";
             this.buttonLetter31.UseVisualStyleBackColor = false;
-            this.buttonLetter31.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter31.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter12
             // 
@@ -346,7 +346,7 @@
             this.buttonLetter12.TabIndex = 57;
             this.buttonLetter12.Text = "Э";
             this.buttonLetter12.UseVisualStyleBackColor = false;
-            this.buttonLetter12.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter12.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter13
             // 
@@ -366,7 +366,7 @@
             this.buttonLetter13.TabIndex = 56;
             this.buttonLetter13.Text = "Ж";
             this.buttonLetter13.UseVisualStyleBackColor = false;
-            this.buttonLetter13.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter13.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter14
             // 
@@ -386,7 +386,7 @@
             this.buttonLetter14.TabIndex = 55;
             this.buttonLetter14.Text = "Д";
             this.buttonLetter14.UseVisualStyleBackColor = false;
-            this.buttonLetter14.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter14.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter15
             // 
@@ -406,7 +406,7 @@
             this.buttonLetter15.TabIndex = 54;
             this.buttonLetter15.Text = "Л";
             this.buttonLetter15.UseVisualStyleBackColor = false;
-            this.buttonLetter15.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter15.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter16
             // 
@@ -426,7 +426,7 @@
             this.buttonLetter16.TabIndex = 53;
             this.buttonLetter16.Text = "О";
             this.buttonLetter16.UseVisualStyleBackColor = false;
-            this.buttonLetter16.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter16.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter17
             // 
@@ -446,7 +446,7 @@
             this.buttonLetter17.TabIndex = 52;
             this.buttonLetter17.Text = "Р";
             this.buttonLetter17.UseVisualStyleBackColor = false;
-            this.buttonLetter17.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter17.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter18
             // 
@@ -466,7 +466,7 @@
             this.buttonLetter18.TabIndex = 51;
             this.buttonLetter18.Text = "П";
             this.buttonLetter18.UseVisualStyleBackColor = false;
-            this.buttonLetter18.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter18.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter19
             // 
@@ -486,7 +486,7 @@
             this.buttonLetter19.TabIndex = 50;
             this.buttonLetter19.Text = "А";
             this.buttonLetter19.UseVisualStyleBackColor = false;
-            this.buttonLetter19.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter19.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter20
             // 
@@ -506,7 +506,7 @@
             this.buttonLetter20.TabIndex = 49;
             this.buttonLetter20.Text = "В";
             this.buttonLetter20.UseVisualStyleBackColor = false;
-            this.buttonLetter20.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter20.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter21
             // 
@@ -526,7 +526,7 @@
             this.buttonLetter21.TabIndex = 48;
             this.buttonLetter21.Text = "Ы";
             this.buttonLetter21.UseVisualStyleBackColor = false;
-            this.buttonLetter21.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter21.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter22
             // 
@@ -546,7 +546,7 @@
             this.buttonLetter22.TabIndex = 47;
             this.buttonLetter22.Text = "Ф";
             this.buttonLetter22.UseVisualStyleBackColor = false;
-            this.buttonLetter22.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter22.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter7
             // 
@@ -566,7 +566,7 @@
             this.buttonLetter7.TabIndex = 46;
             this.buttonLetter7.Text = "Ъ";
             this.buttonLetter7.UseVisualStyleBackColor = false;
-            this.buttonLetter7.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter7.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter8
             // 
@@ -586,7 +586,7 @@
             this.buttonLetter8.TabIndex = 45;
             this.buttonLetter8.Text = "Х";
             this.buttonLetter8.UseVisualStyleBackColor = false;
-            this.buttonLetter8.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter8.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter9
             // 
@@ -606,7 +606,7 @@
             this.buttonLetter9.TabIndex = 44;
             this.buttonLetter9.Text = "З";
             this.buttonLetter9.UseVisualStyleBackColor = false;
-            this.buttonLetter9.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter9.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter10
             // 
@@ -626,7 +626,7 @@
             this.buttonLetter10.TabIndex = 43;
             this.buttonLetter10.Text = "Щ";
             this.buttonLetter10.UseVisualStyleBackColor = false;
-            this.buttonLetter10.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter10.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter6
             // 
@@ -646,7 +646,7 @@
             this.buttonLetter6.TabIndex = 42;
             this.buttonLetter6.Text = "Ш";
             this.buttonLetter6.UseVisualStyleBackColor = false;
-            this.buttonLetter6.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter6.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter5
             // 
@@ -666,7 +666,7 @@
             this.buttonLetter5.TabIndex = 41;
             this.buttonLetter5.Text = "Г";
             this.buttonLetter5.UseVisualStyleBackColor = false;
-            this.buttonLetter5.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter5.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter4
             // 
@@ -686,7 +686,7 @@
             this.buttonLetter4.TabIndex = 40;
             this.buttonLetter4.Text = "Н";
             this.buttonLetter4.UseVisualStyleBackColor = false;
-            this.buttonLetter4.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter4.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter3
             // 
@@ -706,7 +706,7 @@
             this.buttonLetter3.TabIndex = 39;
             this.buttonLetter3.Text = "Е";
             this.buttonLetter3.UseVisualStyleBackColor = false;
-            this.buttonLetter3.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter3.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter2
             // 
@@ -726,7 +726,7 @@
             this.buttonLetter2.TabIndex = 38;
             this.buttonLetter2.Text = "К";
             this.buttonLetter2.UseVisualStyleBackColor = false;
-            this.buttonLetter2.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter2.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter1
             // 
@@ -746,7 +746,7 @@
             this.buttonLetter1.TabIndex = 37;
             this.buttonLetter1.Text = "У";
             this.buttonLetter1.UseVisualStyleBackColor = false;
-            this.buttonLetter1.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter1.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter0
             // 
@@ -766,7 +766,7 @@
             this.buttonLetter0.TabIndex = 36;
             this.buttonLetter0.Text = "Ц";
             this.buttonLetter0.UseVisualStyleBackColor = false;
-            this.buttonLetter0.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter0.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // buttonLetter11
             // 
@@ -786,7 +786,7 @@
             this.buttonLetter11.TabIndex = 35;
             this.buttonLetter11.Text = "Й";
             this.buttonLetter11.UseVisualStyleBackColor = false;
-            this.buttonLetter11.Click += new System.EventHandler(this.button25_Click);
+            this.buttonLetter11.Click += new System.EventHandler(this.ClickOnLetter);
             // 
             // GameFrame
             // 

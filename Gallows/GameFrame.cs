@@ -47,7 +47,7 @@ namespace Gallows
         }
         #region Отрисовка слова и отдельных букв
         //Отрисовака всего слова в начале игры
-        public void DrawWord()
+        private void DrawWord()
         {
             Point point = new Point();
             switch (levelDif)
@@ -78,7 +78,7 @@ namespace Gallows
                 boxLetter.ForeColor = System.Drawing.Color.Gold;
                 boxLetter.Location = point;
                 boxLetter.Name = "boxLetter" + i;
-                boxLetter.Size = new System.Drawing.Size(32, 32);               
+                boxLetter.Size = new System.Drawing.Size(32, 32);
                 boxLetter.Text = "#";
                 boxLetter.Enabled = true;
                 boxLetter.Visible = false;
@@ -110,7 +110,7 @@ namespace Gallows
             string str = "" + questWord[index];
             listBoxLetters[index].Text = str.ToUpper();
         }
-        private void OpenFirstLastLetter()
+        public void OpenFirstLastLetter()
         {
 
             for (int i = 0; i < questWord.Length; i++)
@@ -199,7 +199,7 @@ namespace Gallows
         private void GameFrame_Load(object sender, EventArgs e)
         {
             pictureBox1.MouseEnter += new EventHandler(pictureBox1_MouseEnter);
-            pictureBox1.MouseLeave += new EventHandler(pictureBox1_MouseLeave);            
+            pictureBox1.MouseLeave += new EventHandler(pictureBox1_MouseLeave);
         }
 
         #region Анимация начала/конца игры - обрабочики таймера
@@ -266,27 +266,32 @@ namespace Gallows
 
                 VisibleWordT();
                 pictureBox1.Visible = false;
-               
+
                 pictureBox2.Visible = true;
                 panel1.Visible = true;
                 bboool = true;
-                
+
                 OpenFirstLastLetter();
             };
 
         }
 
         //Нажатие на кнопку с буквой
-        private void button25_Click(object sender, EventArgs e)
+        private void ClickOnLetter(object sender, EventArgs e)
+        {
+            LetterOn((sender as Button));
+        }
+
+        public bool LetterOn(Button sender)
         {
             bool isFind = false;
             questWord = questWord.ToUpper();
-            if (sender is Button)
+            if (sender != null)
             {
                 //При сравнении не учитываем первый(нулевой) символ и последний. Ибо они уже открыты
                 for (int i = 1; i < questWord.Length - 1; i++)
                 {
-                    if (questWord[i].Equals((sender as Button).Text[0]))
+                    if (questWord[i].Equals(sender.Text[0]))
                     {
                         OpenLetter(i);
                         guessedLetters++;
@@ -308,14 +313,15 @@ namespace Gallows
             {
                 GameOver();
             }
-
-            (sender as Button).Enabled = false;
+            
+            sender.Enabled = false;
+            return isFind;
         }
 
         private void GameFrame_FormClosing(object sender, FormClosingEventArgs e)
-        {          
+        {
             if (Application.OpenForms.Count <= 2)
-                Environment.Exit(0);            
+                Environment.Exit(0);
         }
 
     }
