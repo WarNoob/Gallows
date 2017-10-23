@@ -7,3 +7,14 @@ C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\GameFrame.Test\
 C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\GameFrame.Test\obj\Debug\GameFrame.Test.csprojResolveAssemblyReference.cache
 C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\GameFrame.Test\obj\Debug\GameFrame.Test.dll
 C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\GameFrame.Test\obj\Debug\GameFrame.Test.pdb
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\GameFrame.Test\bin\Debug\GameFrame.Test.dll
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\GameFrame.Test\bin\Debug\GameFrame.Test.pdb
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\GameFrame.Test\bin\Debug\Gallows.exe
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\GameFrame.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\GameFrame.Test\bin\Debug\Gallows.pdb
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\GameFrame.Test\bin\Debug\Gallows.exe.config
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\GameFrame.Test\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\GameFrame.Test\obj\Debug\GameFrame.Test.csprojResolveAssemblyReference.cache
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\GameFrame.Test\obj\Debug\GameFrame.Test.csproj.CoreCompileInputs.cache
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\GameFrame.Test\obj\Debug\GameFrame.Test.dll
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\GameFrame.Test\obj\Debug\GameFrame.Test.pdb

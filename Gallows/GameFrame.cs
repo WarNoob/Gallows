@@ -19,16 +19,17 @@ namespace Gallows
         //Квествовое слово
         string questWord;
         //Счётчик ошибок при выборе буквы
-        int countError;
+        public int countError;
         int countWin;
         //Сколько букв угадано. Для победы countWin == guessedLetters
         int guessedLetters;
         //Коллекция которая хранит ссылки на texBox которые отображат questWord
         public readonly List<TextBox> listBoxLetters = new List<TextBox>();
 
-        float scale = 0.1F;
-        int scale_c = 0;
-        bool bboool = true;
+        public float scale = 0.1F;
+        public int scale_c = 0;
+        public bool bboool = true;
+        public string str;
 
         public GameFrame(LevelDifficulty levelDif, string name, string questWord)
         {
@@ -133,13 +134,15 @@ namespace Gallows
 
         #region Методы обновления висельницы, GameOver, YouWin
         //Метод обновляет висельницу в зависимости от колличества жизней
-        private void UpdateVisel()
+        public void UpdateVisel(bool num)
         {
-            string str = "pics/visel" + countError + ".png";//строка доступа к изображению, зависит от кол-во ошибок
-            pictureBox2.Image = Image.FromFile(str);
+            str = "pics/visel" + countError + ".png";//строка доступа к изображению, зависит от кол-во ошибок
+            if (num)
+            {
+                pictureBox2.Image = Image.FromFile(str);
+            };
         }
-
-        private void GameOver()
+        public void GameOver(bool num)
         {
             VisibleWordF();
             scale = 0.1F; scale_c = 0;
@@ -152,22 +155,24 @@ namespace Gallows
             pictureBox1.Visible = true;
             end.Enabled = true;
 
-            string str = name + ", эх Вы..! :(((\nЯ даже не знаю что и сказать... :(((\nБыло же так легко.\nВам должно быть очень стыдно!\n\n";
+            str = name + ", эх Вы..! :(((\nЯ даже не знаю что и сказать... :(((\nБыло же так легко.\nВам должно быть очень стыдно!\n\n";
 
-            DialogResult result = MessageBox.Show(str + "Начать заново?", "Game Over", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            if (num)
             {
-                var form = Application.OpenForms[0];
-                form.Show();
-                this.Hide();
-            }
-            else if (result == DialogResult.No)
-            {
-                Environment.Exit(0);
-            }
+                DialogResult result = MessageBox.Show(str + "Начать заново?", "Game Over", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    var form = Application.OpenForms[0];
+                    form.Show();
+                    this.Hide();
+                }
+                else if (result == DialogResult.No)
+                {
+                    Environment.Exit(0);
+                }
+            };
         }
-
-        private void YouWin()
+        public void YouWin(bool num)
         {
             VisibleWordF();
             scale = 0.1F; scale_c = 0;
@@ -180,17 +185,20 @@ namespace Gallows
             pictureBox1.Visible = true;
             end.Enabled = true;
 
-            string str = name + ", ух Ты!!!\nСлов нет!!!\nЭто было нелегко!\nНо Вы справились!!!\nДолжно быть Вы гордитесь собой.\n\n";
-            DialogResult result = MessageBox.Show(str + "Начать заново?", "You Win!!", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            str = name + ", ух Ты!!!\nСлов нет!!!\nЭто было нелегко!\nНо Вы справились!!!\nДолжно быть Вы гордитесь собой.\n\n";
+            if (num)
             {
-                var form = Application.OpenForms[0];
-                form.Show();
-                this.Hide();
-            }
-            else if (result == DialogResult.No)
-            {
-                Environment.Exit(0);
+                DialogResult result = MessageBox.Show(str + "Начать заново?", "You Win!!", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    var form = Application.OpenForms[0];
+                    form.Show();
+                    this.Hide();
+                }
+                else if (result == DialogResult.No)
+                {
+                    Environment.Exit(0);
+                }
             }
         }
         #endregion
@@ -203,7 +211,7 @@ namespace Gallows
         }
 
         #region Анимация начала/конца игры - обрабочики таймера
-        private void timer1_Tick_1(object sender, EventArgs e)
+        public void timer1_Tick_1(object sender, EventArgs e)
         {
             pictureBox1.Size = new Size((int)(765 * scale), (int)(460 * scale));
             pictureBox1.Location = new Point(450 - (pictureBox1.Size.Width / 2), 225 - (pictureBox1.Size.Height / 2));
@@ -220,7 +228,8 @@ namespace Gallows
             };
 
         }
-        private void timer2_Tick(object sender, EventArgs e)
+
+        public void timer2_Tick(object sender, EventArgs e)
         {
             pictureBox1.Size = new Size((int)(560 * scale), (int)(130 * scale));
             pictureBox1.Location = new Point(450 - (pictureBox1.Size.Width / 2), 225 - (pictureBox1.Size.Height / 2));
@@ -229,7 +238,6 @@ namespace Gallows
             if (scale >= (0.2F * scale_c))
                 if (scale_c < 4)
                     scale_c++;
-
             if (scale >= 1)
             {
                 end.Enabled = false;
@@ -239,34 +247,33 @@ namespace Gallows
         #endregion
 
         #region обработчики наведения/покидания пикчербокса мышью
-        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        public void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
             if (!bboool)
             {
-                pictureBox1.Size = new Size((int)(765 * .95F), (int)(460 * .95F));
-                pictureBox1.Location = new Point(450 - (pictureBox1.Size.Width / 2), 225 - (pictureBox1.Size.Height / 2));
+                (sender as PictureBox).Size = new Size((int)(765 * .95F), (int)(460 * .95F));
+                (sender as PictureBox).Location = new Point(450 - ((sender as PictureBox).Size.Width / 2), 225 - ((sender as PictureBox).Size.Height / 2));
             }
 
         }
-        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        public void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
             if (!bboool)
             {
-                pictureBox1.Size = new Size(765, 460);
-                pictureBox1.Location = new Point(450 - (pictureBox1.Size.Width / 2), 225 - (pictureBox1.Size.Height / 2));
+                (sender as PictureBox).Size = new Size(765, 460);
+                (sender as PictureBox).Location = new Point(450 - ((sender as PictureBox).Size.Width / 2), 225 - ((sender as PictureBox).Size.Height / 2));
             }
         }
         #endregion
 
         // Нажатие на картинку Старт.
-        private void pictureBox1_Click(object sender, EventArgs e)
+        public void pictureBox1_Click(object sender, EventArgs e)
         {
             if (!bboool)
             {
 
                 VisibleWordT();
-                pictureBox1.Visible = false;
-
+                (sender as PictureBox).Visible = false;
                 pictureBox2.Visible = true;
                 panel1.Visible = true;
                 bboool = true;
@@ -302,16 +309,16 @@ namespace Gallows
             if (isFind == false)
             {
                 countError++;
-                UpdateVisel();
+                UpdateVisel(true);
             }
             if (guessedLetters == countWin)
             {
-                YouWin();
+                YouWin(true);
 
             }
             if (countError == 9)
             {
-                GameOver();
+                GameOver(true);
             }
             
             sender.Enabled = false;

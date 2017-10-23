@@ -19,3 +19,14 @@ C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows\Gallows\obj\
 C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows\Gallows\obj\Debug\Gallows.csproj.CoreCompileInputs.cache
 C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows\Gallows\obj\Debug\Gallows.exe
 C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows\Gallows\obj\Debug\Gallows.pdb
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\Gallows\bin\Debug\Gallows.exe.config
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\Gallows\bin\Debug\Gallows.exe
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\Gallows\bin\Debug\Gallows.pdb
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\Gallows\obj\Debug\Gallows.GameFrame.resources
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\Gallows\obj\Debug\Gallows.InitFrame.resources
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\Gallows\obj\Debug\Gallows.Properties.Resources.resources
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\Gallows\obj\Debug\Gallows.csproj.GenerateResource.Cache
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\Gallows\obj\Debug\Gallows.csproj.CoreCompileInputs.cache
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\Gallows\obj\Debug\Gallows.exe
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\Gallows\obj\Debug\Gallows.pdb
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\Gallows\obj\Debug\Gallows.csprojResolveAssemblyReference.cache

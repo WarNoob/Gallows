@@ -7,3 +7,14 @@ C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\
 C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\obj\Debug\InitFrame.Test.csprojResolveAssemblyReference.cache
 C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\obj\Debug\InitFrame.Test.dll
 C:\Users\111\Documents\Visual Studio 2015\Projects\4.1\GitHub\G2\ItitFrame.Test\obj\Debug\InitFrame.Test.pdb
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\ItitFrame.Test\bin\Debug\InitFrame.Test.dll
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\ItitFrame.Test\bin\Debug\InitFrame.Test.pdb
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\ItitFrame.Test\bin\Debug\Gallows.exe
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\ItitFrame.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\ItitFrame.Test\bin\Debug\Gallows.pdb
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\ItitFrame.Test\bin\Debug\Gallows.exe.config
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\ItitFrame.Test\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\ItitFrame.Test\obj\Debug\InitFrame.Test.csprojResolveAssemblyReference.cache
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\ItitFrame.Test\obj\Debug\InitFrame.Test.csproj.CoreCompileInputs.cache
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\ItitFrame.Test\obj\Debug\InitFrame.Test.dll
+C:\Users\bukhtiyarov.evgeniy\Desktop\учебка\git\temp1\Gallows — копия — копия\ItitFrame.Test\obj\Debug\InitFrame.Test.pdb

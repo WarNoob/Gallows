@@ -10,6 +10,8 @@ namespace GameFrameTest
     [TestClass]
     public class GameFrameTest
     {
+
+        #region Линника Тесты
         [TestMethod]
         public void GameFrame_DrawWord_Word()
         {
@@ -68,10 +70,248 @@ namespace GameFrameTest
         [TestMethod]
         public void GameFrame_LetterOn_FalseLetter()
         {
-            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Лёша", "марка");
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Леша", "марка");
             Button button = new Button();
             button.Text = "Ж";
             Assert.IsFalse(game.LetterOn(button));
         }
+
+        [TestMethod]
+        public void GameFrame_PictureBox1_MouseEnter_95proc()
+        {
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            game.bboool = false;
+            PictureBox pictureBox1 = new PictureBox();
+            game.pictureBox1_MouseEnter(pictureBox1, new EventArgs());
+            Assert.AreEqual(pictureBox1.Height, (int)(460 * .95F));
+            Assert.AreEqual(pictureBox1.Width, (int)(765 * .95F));
+        }
+        [TestMethod]
+        public void GameFrame_PictureBox1_MouseLeave_100proc()
+        {
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            game.bboool = false;
+            PictureBox pictureBox1 = new PictureBox();
+            game.pictureBox1_MouseLeave(pictureBox1, new EventArgs());
+            Assert.AreEqual(pictureBox1.Height, 460);
+            Assert.AreEqual(pictureBox1.Width, 765);
+        }
+        
+        #endregion
+
+        #region Бухтиярова тесты
+        [TestMethod]
+        public void GameFrame_pictureBox1_Click_some_par()
+        {
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            game.bboool = false;
+            PictureBox pictureBox1 = new PictureBox();
+            game.pictureBox1_Click(pictureBox1, new EventArgs());
+            Assert.AreEqual(pictureBox1.Visible, false);
+            Assert.AreEqual(game.bboool, true);
+        }
+        [TestMethod]
+        public void GameFrame_YouWin_name_plus_str()
+        {
+            string name = "Женя";
+            string str = ", ух Ты!!!\nСлов нет!!!\nЭто было нелегко!\nНо Вы справились!!!\nДолжно быть Вы гордитесь собой.\n\n";
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, name, "марка");
+            game.YouWin(false);
+            Assert.AreEqual(game.str, name + str);
+        }
+        [TestMethod]
+        public void GameFrame_GameOver_name_plus_str()
+        {
+            string name = "Женя";
+            string str = ", эх Вы..! :(((\nЯ даже не знаю что и сказать... :(((\nБыло же так легко.\nВам должно быть очень стыдно!\n\n";
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, name, "марка");
+            game.GameOver(false);
+            Assert.AreEqual(game.str, name + str);
+        }
+        [TestMethod]
+        public void GameFrame_UpdateVisel_num_of_file()
+        {
+            string str1 = "pics/visel";
+            string str2 = ".png";
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            game.UpdateVisel(false);
+            Assert.AreEqual(game.str, str1 + game.countError + str2);
+        }
+
+        #region GameFrame_Timer1()
+        [TestMethod]
+        public void GameFrame_Timer1_0_1()
+        {
+            float a, b;
+            float c = 0.1F;
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            for (int i = 0; i < 0; i++)
+                game.timer1_Tick_1(new object(), new EventArgs());
+
+            a = game.scale;
+            game.timer1_Tick_1(new object(), new EventArgs());
+            b = game.scale;
+
+            Assert.AreEqual(b-a, c);
+        }
+        [TestMethod]
+        public void GameFrame_Timer1_1_2()
+        {
+            float a, b;
+            float c = 0.08F;
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            for (int i = 0; i < 1; i++)
+                game.timer1_Tick_1(new object(), new EventArgs());
+
+            a = game.scale;
+            game.timer1_Tick_1(new object(), new EventArgs());
+            b = game.scale;
+
+            Assert.AreEqual(b - a, c);
+        }
+        [TestMethod]
+        public void GameFrame_Timer1_3_4()
+        {
+            float a, b;
+            float c = 0.06F;
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            for (int i = 0; i < 3; i++)
+                game.timer1_Tick_1(new object(), new EventArgs());
+
+            a = game.scale;
+            game.timer1_Tick_1(new object(), new EventArgs());
+            b = game.scale;
+
+            Assert.AreEqual(b - a, c, .00001F);
+        }
+        [TestMethod]
+        public void GameFrame_Timer1_7_8()
+        {
+            float a, b;
+            float c = 0.04F;
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            for (int i = 0; i < 7; i++)
+                game.timer1_Tick_1(new object(), new EventArgs());
+
+            a = game.scale;
+            game.timer1_Tick_1(new object(), new EventArgs());
+            b = game.scale;
+
+            Assert.AreEqual(b - a, c, .00001F);
+        }
+        [TestMethod]
+        public void GameFrame_Timer1_20_21()
+        {
+            float a, b;
+            float c = 0.02F;
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            for (int i = 0; i < 20; i++)
+                game.timer1_Tick_1(new object(), new EventArgs());
+
+            a = game.scale;
+            game.timer1_Tick_1(new object(), new EventArgs());
+            b = game.scale;
+
+            Assert.AreEqual((b - a), c, .00001F);
+        }
+        [TestMethod]
+        public void GameFrame_Timer1_100()
+        {
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            for (int i = 0; i < 100; i++)
+                game.timer1_Tick_1(new object(), new EventArgs());
+
+            Assert.AreEqual((game.scale >= 1), true);
+        }
+        #endregion
+        #region GameFrame_Timer2()
+        [TestMethod]
+        public void GameFrame_Timer2_0_1()
+        {
+            float a, b;
+            float c = 0.1F;
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            for (int i = 0; i < 0; i++)
+                game.timer2_Tick(new object(), new EventArgs());
+
+            a = game.scale;
+            game.timer2_Tick(new object(), new EventArgs());
+            b = game.scale;
+
+            Assert.AreEqual(b - a, c, .00001F);
+        }
+        [TestMethod]
+        public void GameFrame_Timer2_1_2()
+        {
+            float a, b;
+            float c = 0.08F;
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            for (int i = 0; i < 1; i++)
+                game.timer2_Tick(new object(), new EventArgs());
+
+            a = game.scale;
+            game.timer2_Tick(new object(), new EventArgs());
+            b = game.scale;
+
+            Assert.AreEqual(b - a, c, .00001F);
+        }
+        [TestMethod]
+        public void GameFrame_Timer2_3_4()
+        {
+            float a, b;
+            float c = 0.06F;
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            for (int i = 0; i < 3; i++)
+                game.timer2_Tick(new object(), new EventArgs());
+
+            a = game.scale;
+            game.timer2_Tick(new object(), new EventArgs());
+            b = game.scale;
+
+            Assert.AreEqual(b - a, c, .00001F);
+        }
+        [TestMethod]
+        public void GameFrame_Timer2_7_8()
+        {
+            float a, b;
+            float c = 0.04F;
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            for (int i = 0; i < 7; i++)
+                game.timer2_Tick(new object(), new EventArgs());
+
+            a = game.scale;
+            game.timer2_Tick(new object(), new EventArgs());
+            b = game.scale;
+
+            Assert.AreEqual(b - a, c, .00001F);
+        }
+        [TestMethod]
+        public void GameFrame_Timer2_20_21()
+        {
+            float a, b;
+            float c = 0.02F;
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            for (int i = 0; i < 20; i++)
+                game.timer2_Tick(new object(), new EventArgs());
+
+            a = game.scale;
+            game.timer2_Tick(new object(), new EventArgs());
+            b = game.scale;
+
+            Assert.AreEqual(b - a, c, .00001F);
+        }
+        [TestMethod]
+        public void GameFrame_Timer2_100()
+        {
+            GameFrame game = new GameFrame(LevelDifficulty.Easy, "Женя", "марка");
+            for (int i = 0; i < 100; i++)
+                game.timer2_Tick(new object(), new EventArgs());
+
+            Assert.AreEqual((game.scale >= 1), true);
+        }
+        #endregion
+
+        #endregion
+
     }
 }
